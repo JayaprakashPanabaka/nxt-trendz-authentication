@@ -1,0 +1,113 @@
+/* Write your CSS code here */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.bg-container {
+  display: flex;
+  height: 89vh;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 3.5rem;
+  font-family: 'Roboto';
+  /* background-color: rgb(145, 145, 185); */
+}
+
+.img-container {
+  /* width: 140%; */
+  /* border: 1px solid yellow; */
+}
+
+.website-img {
+  height: 300px;
+  width: 500px;
+}
+
+.form-container {
+  /* border: 1px solid yellow; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  height: 300px;
+  padding: 2rem;
+  width: 25%;
+  box-shadow: 0px 4px 16px 0px #d7d3d3;
+}
+
+.website-logo {
+  width: 60%;
+  height: 40px;
+  /* width: 100px; */
+  position: top;
+  margin-bottom: 2rem;
+}
+
+.input-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: #1e293b;
+}
+
+.input-field {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  /* height: 25px; */
+  padding: 10px;
+  background-color: #d7dfe9;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+}
+
+.input-field:hover {
+  border: 2px solid #475569;
+}
+
+.btn-container {
+  width: 110%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  width: 110%;
+  height: 35px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0b69ff;
+  color: #ffffff;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.error-msg {
+  color: #ff0b37;
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 870px) {
+  .bg-container {
+    display: flex;
+    /* grid-template-columns: 1fr; */
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .website-img {
+    width: 90%;
+  }
+
+  .form-container {
+    width: 90%;
+  }
+}

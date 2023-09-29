@@ -1,0 +1,52 @@
+/* Write your CSS code here */
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+  /* margin: 2rem; */
+  /* border: 1px solid #e2e8f0; */
+  border-radius: 0.7rem;
+}
+
+.nav-logo {
+  height: 35px;
+}
+
+.menu-items {
+  display: flex;
+  align-items: center;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin-right: 1rem;
+}
+
+.nav-link {
+  list-style: none;
+  text-decoration: none;
+  margin: 0 0.7rem;
+  color: #475569;
+  font-weight: 600;
+  font-family: 'Roboto';
+  font-size: 1rem;
+}
+
+.logout-btn {
+  background-color: #0967d2;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  height: 30px;
+  width: 80px;
+}
+
+.logout-btn:hover {
+  cursor: pointer;
+}
