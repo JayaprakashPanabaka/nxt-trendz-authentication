@@ -12,13 +12,13 @@ const LoginForm = () => {
   })
 
   const onChangeUsername = event => {
-    setLoginData({username: event.target.value})
+    setLoginData({...loginData, username: event.target.value})
     // console.log(username)
     // console.log(event.target.value)
   }
 
   const onChangePassword = event => {
-    setLoginData({password: event.target.value})
+    setLoginData({...loginData, password: event.target.value})
     // console.log(event.target.value)
   }
 
@@ -28,13 +28,15 @@ const LoginForm = () => {
     history.replace('/')
   }
 
+  const onSubmitFailure = errorMessage => {
+    setLoginData({...loginData, showSubmitErr: true, errorMsg: errorMessage})
+  }
+
   const onFormSubmit = async event => {
     event.preventDefault()
-    const userDetails = {loginData}
-    // const userDetails = {u}
+    const {username, password} = loginData
+    const userDetails = {username, password}
     // console.log(userDetails)
-    // console.log(username)
-    // console.log(password)
 
     const url = 'https://apis.ccbp.in/login'
     const options = {
@@ -43,18 +45,20 @@ const LoginForm = () => {
     }
 
     const response = await fetch(url, options)
-    console.log(response)
+    // console.log(response)
 
     const data = await response.json()
     console.log(data)
 
     if (response.ok === true) {
       onSubmitSuccess()
+      console.log(onSubmitSuccess())
     } else {
-      setLoginData({
-        errorMsg: data.error_msg,
-        showSubmitErr: true,
-      })
+      //   setLoginData({
+      //     errorMsg: data.error_msg,
+      //     showSubmitErr: true,
+      //   })
+      onSubmitFailure(data.error_msg)
     }
   }
 
@@ -76,7 +80,6 @@ const LoginForm = () => {
           className="website-logo"
         />
 
-        {/* onSubmit={onSubmitForm} */}
         <form className="login-form" onSubmit={onFormSubmit}>
           <div className="field-container">
             <label htmlFor="username" className="input-label">
@@ -110,7 +113,7 @@ const LoginForm = () => {
               Login
             </button>
           </div>
-          {loginData.showSubmitError && (
+          {loginData.showSubmitErr && (
             <p className="error-msg">*{loginData.errorMsg}</p>
           )}
         </form>
