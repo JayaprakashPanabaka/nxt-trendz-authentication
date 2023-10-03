@@ -1,5 +1,6 @@
 // Write your JS code here
 import {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 
 import './index.css'
 
@@ -10,6 +11,8 @@ const LoginForm = () => {
     showSubmitErr: false,
     errorMsg: '',
   })
+
+  const history = useHistory()
 
   const onChangeUsername = event => {
     setLoginData({...loginData, username: event.target.value})
@@ -22,8 +25,7 @@ const LoginForm = () => {
     // console.log(event.target.value)
   }
 
-  const onSubmitSuccess = props => {
-    const {history} = props
+  const onSubmitSuccess = () => {
     console.log(history)
     history.replace('/')
   }
@@ -54,10 +56,6 @@ const LoginForm = () => {
       onSubmitSuccess()
       console.log(onSubmitSuccess())
     } else {
-      //   setLoginData({
-      //     errorMsg: data.error_msg,
-      //     showSubmitErr: true,
-      //   })
       onSubmitFailure(data.error_msg)
     }
   }
